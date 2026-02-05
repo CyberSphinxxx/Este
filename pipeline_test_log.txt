@@ -1,0 +1,49 @@
+--- Starting Pipeline Verification (Logged) ---
+
+[1] Checking Assets...
+✅ en_US-lessac-medium.onnx already exists.
+✅ en_US-lessac-medium.onnx.json already exists.
+    Model at: C:\John Lemar Gonzales\Github Repository\Este\Este\server\models\en_US-lessac-medium.onnx
+
+[2] Initializing Services...
+    Services initialized.
+
+[3] Processing Text: 'Maayong buntag, ako si Este.'
+
+[4] Generating Visemes...
+    ✅ Generated 24 viseme events.
+    Inspecting first 5 visemes:
+[
+  {
+    "value": "PP",
+    "time": 0.0,
+    "duration": 0.1
+  },
+  {
+    "value": "E",
+    "time": 0.1,
+    "duration": 0.1
+  },
+  {
+    "value": "ih",
+    "time": 0.2,
+    "duration": 0.1
+  },
+  {
+    "value": "DD",
+    "time": 0.30000000000000004,
+    "duration": 0.1
+  },
+  {
+    "value": "sil",
+    "time": 0.4,
+    "duration": 0.1
+  }
+]
+    ✅ All viseme codes are valid Oculus Standard.
+
+[5] Generating Audio...
+Piper executable not found. Please transform ensure 'piper' is in your PATH.
+    ❌ Error: TTS failed to generate audio. (Check if 'piper' is in PATH)
+
+--- Verification Complete ---
