@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+websockets
+langchain
+langchain-community
+chromadb
+ollama
+faster-whisper
+numpy
+requests
+python-multipart
+# For RAG
+sentence-transformers
+# For Visemes
+g2p_en
+# Utils
+tqdm
