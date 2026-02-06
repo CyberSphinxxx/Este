@@ -11,6 +11,8 @@ const AudioRecorder = () => {
 
     const isThinking = useStore(state => state.isThinking);
     const subtitle = useStore(state => state.subtitle);
+    const textQuery = useStore(state => state.textQuery);
+    const setTextQuery = useStore(state => state.setTextQuery);
 
     // WebSocket connection
     useEffect(() => {
@@ -87,6 +89,8 @@ const AudioRecorder = () => {
 
         connectWS();
 
+
+
         return () => {
             if (wsRef.current) {
                 wsRef.current.onclose = null; // Prevent reconnect on unmount
@@ -94,6 +98,18 @@ const AudioRecorder = () => {
             }
         };
     }, []);
+
+    // Watch for text-based queries (Quick Questions)
+    useEffect(() => {
+        if (textQuery && wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+            console.log('📤 Sending text query:', textQuery);
+            wsRef.current.send(JSON.stringify({ type: 'text_query', text: textQuery }));
+            useStore.getState().setIsThinking(true);
+            useStore.getState().setSubtitle("Thinking...");
+            // Reset query so it can be triggered again
+            setTextQuery(null);
+        }
+    }, [textQuery, setTextQuery]);
 
     // Start Recording
     const startRecording = async () => {
