@@ -1,10 +1,45 @@
-The University of Science and Technology of Southern Philippines (USTP) is a state university in the Philippines.
-The Registrar's Office is located at the ground floor of the Administration Building.
-To enroll, students must submit their Form 138 and Certificate of Good Moral Character.
-Library hours are from 7:00 AM to 6:00 PM on weekdays.
-The vision of USTP is to be a nationally recognized science and technology university.
-Classes start at 7:30 AM.
-The Citizen's Charter details the processing time for transcript requests is 3 working days.
-The IT building is adjacent to the Engineering Complex.
-Este is a local AI kiosk companion designed to assist students.
-The university president's office is on the 2nd floor.
+The University of Science and Technology of Southern Philippines (USTP) is a premier state university in the Philippines, with its main campus located in Cagayan de Oro City (CDO).
+The CDO campus is situated along C.M. Recto Avenue, Lapasan.
+The university has several colleges: College of Information Technology (CIT), College of Engineering and Architecture (CEA), College of Science and Mathematics (CSM), and College of Technology (COT).
+
+Enrollment Process for Freshmen:
+1. Online Application: Apply via the USTP Admission Portal.
+2. Entrance Examination: Pass the USTP Admission Test (USTP-AT).
+3. Requirements Submission: Submit Form 138 (Report Card), Certificate of Good Moral Character, and PSA Birth Certificate to the Admissions Office.
+4. Medical Clearance: Undergo physical examination at the University Clinic.
+5. Interview: Some programs (like Engineering) require a department-level interview.
+6. Enrollment: Proceed to the Registrar's Office for encoding and assessment of fees.
+
+The Registrar's Office is located on the ground floor of the Administration Building, near the main gate.
+The Admission Office is located at the Student Center Building.
+The University Clinic is situated behind the Science and Mathematics Building.
+
+Academic Programs:
+- IT Programs: BS in Information Technology, BS in Data Science, BS in Computer Science.
+- Engineering Programs: BS in Civil Engineering, BS in Mechanical Engineering, BS in Electrical Engineering, BS in Electronics Engineering.
+- Science Programs: BS in Applied Physics, BS in Chemistry, BS in Mathematics.
+
+Scholarships:
+USTP offers various scholarships including the UniFAST Tertiary Education Subsidy (TES), CHED Merit Scholarships, and the DOST Scholarship. 
+Working Student programs are also available through the Student Affairs Office.
+
+Campus Amenities:
+- The University Library is located at the 3-storey building adjacent to the Administration Building. Hours are 7:00 AM to 6:00 PM, Monday to Friday.
+- The IT Building (CIT) is the 4-storey building near the back gate, equipped with advanced computer laboratories.
+- The Engineering Complex houses the various engineering shops and the Makerspace.
+- The Science and Mathematics Building (CSM) is known for its modern laboratories and research facilities.
+
+Student Services:
+- For Transcript of Records (TOR) or Certification requests, proceed to the Registrar's Office. Standard processing time is 3-5 working days.
+- The Guidance and Counseling Office is on the 2nd floor of the Student Center.
+- Student ID renewal is handled by the ICT Service Center at the ground floor of the IT Building.
+
+Vision and Mission:
+Vision: A nationally recognized science and technology university providing the vital link between education and the economy.
+Mission: To bring the world of work into the classroom through merit, talent, and technology.
+
+Este is the official AI mascot and kiosk companion for USTP, designed by students to help navigate the campus and answer common inquiries.
+If Este doesn't know the answer, she will suggest you visit the Public Information Office (PIO) at the Admin Building.
+Classes typically start at 7:30 AM and can go until 8:30 PM for evening sessions.
+The University Oval and Gymnasium are the primary venues for sports and cultural events.
+The Food Court is located near the Engineering Complex, offering various affordable meals.
