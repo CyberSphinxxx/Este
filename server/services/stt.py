@@ -23,34 +23,31 @@ class STTService:
             model = WhisperModel(model_size, device="cuda", compute_type="float16")
             
             # WARMUP / VERIFICATION
-            # actually run a tiny transcription to check for missing DLLs
             print("   Verifying GPU inference...")
-            # Create a dummy silent audio (1 sec of silence)
-            # Whisper expects audio path or numpy array. 
-            # We can't easily create numpy array without numpy installed, 
-            # but we can try transcribing a dummy file or just risk it?
-            # Better: catch the runtime error during first usage?
-            # Actually, let's just try to access the underlying ctranslate2 model properties or rely on the fact 
-            # that 'transcribe' might fail later. 
-            # BUT, the robust way is to fallback IF transcribe fails.
-            
-            # Since we can't easily generate audio without numpy/scipy here (maybe we can?), 
-            # let's proceed with GPU but update transcribe() to handle the specific RuntimeError and switch to CPU?
-            # No, 'transcribe' is called per request. Switching model takes time.
-            # Best to switch NOW.
-            
-            # Let's try to pass a list of zeros if possible? 
-            # faster-whisper accepts list of floats.
-            dummy_audio = [0.0] * 16000 # 1 sec silence
-            segments, _ = model.transcribe(dummy_audio, beam_size=1)
-            list(segments) # Consume generator to trigger execution
-            
-            self.model = model
-            print(f"✅ Whisper ready ({model_size} on GPU/CUDA)")
-            return
-            
+            try:
+                import numpy as np
+                dummy_audio = np.zeros(16000, dtype=np.float32) 
+                segments, _ = model.transcribe(dummy_audio, beam_size=1)
+                list(segments) # Consume generator
+                print("   ✅ GPU Warmup successful")
+                
+                self.model = model
+                print(f"✅ Whisper ready ({model_size} on GPU/CUDA)")
+                return
+
+            except ImportError:
+                print("   ⚠️ Numpy not found, skipping active GPU warmup (assuming success)")
+                self.model = model
+                print(f"✅ Whisper ready ({model_size} on GPU/CUDA)")
+                return
+
+            except Exception as e:
+                print(f"⚠️ GPU Init/Warmup Failed: {e}")
+                print("   Falling back to CPU...")
+                # Fallthrough to CPU block below
+        
         except Exception as e:
-            print(f"⚠️ GPU Init/Warmup Failed: {e}")
+            print(f"⚠️ GPU Init Failed: {e}")
             print("   Falling back to CPU...")
 
         # 2. Fallback to CPU
@@ -76,15 +73,15 @@ class STTService:
 
         print(f"🎤 Processing audio: {len(audio_bytes)} bytes")
 
-        temp_path = None
+        print(f"🎤 Processing audio: {len(audio_bytes)} bytes")
+        
         try:
-            with tempfile.NamedTemporaryFile(suffix='.webm', delete=False) as f:
-                f.write(audio_bytes)
-                temp_path = f.name
+            import io
+            audio_buffer = io.BytesIO(audio_bytes)
             
             # Fast transcription settings
             segments, info = self.model.transcribe(
-                temp_path,
+                audio_buffer,
                 beam_size=1,          # Fastest
                 language="en",        # Skip language detection
                 vad_filter=True,      # Remove silence
@@ -102,9 +99,6 @@ class STTService:
             import traceback
             traceback.print_exc()
             return ""
-        finally:
-            if temp_path and os.path.exists(temp_path):
-                os.remove(temp_path)
 
 if __name__ == "__main__":
     stt = STTService()
