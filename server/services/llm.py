@@ -16,7 +16,8 @@ class LLMService:
         payload = {
             "model": self.model,
             "prompt": full_prompt,
-            "stream": False
+            "stream": False,
+            "keep_alive": -1
         }
 
         try:
@@ -37,7 +38,8 @@ class LLMService:
         payload = {
             "model": self.model,
             "prompt": full_prompt,
-            "stream": True
+            "stream": True,
+            "keep_alive": -1
         }
 
         try:
