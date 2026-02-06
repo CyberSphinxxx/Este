@@ -9,6 +9,7 @@ const useStore = create((set) => ({
     streamQueue: [],      // Array of base64 chunks
     isStreaming: false,
     activeVisemes: [],    // For current stream
+    textQuery: null,      // For quick questions
 
     setVisemes: (newVisemes) => set({ visemes: newVisemes }),
     addAudio: (audioData) => set((state) => ({ audioQueue: [...state.audioQueue, audioData] })),
@@ -27,6 +28,7 @@ const useStore = create((set) => ({
 
     setIsThinking: (thinking) => set({ isThinking: thinking }),
     setSubtitle: (text) => set({ subtitle: text }),
+    setTextQuery: (text) => set({ textQuery: text }),
 }));
 
 export default useStore;
