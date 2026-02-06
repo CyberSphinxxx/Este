@@ -7,6 +7,12 @@ echo  ║     ESTE AI Kiosk - Development Mode     ║
 echo  ╚══════════════════════════════════════════╝
 echo.
 
+
+:: 0. Cleanup ports
+echo [0/4] Cleaning up ports...
+for /f "tokens=5" %%a in ('netstat -aon ^| find ":8000" ^| find "LISTENING"') do taskkill /f /pid %%a >nul 2>&1
+echo       ✓ Ports cleared
+
 :: 1. Check for Ollama (Port 11434)
 echo [1/4] Checking Ollama...
 netstat -ano | find "11434" | find "LISTENING" >nul
